@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -25,14 +27,33 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen antialiased`}
       >
-        <header className="w-full h-12 bg-black dark:bg-white dark:text-black">
-          This is the header
+        <header className="flex justify-between items-center w-full h-12 px-4 py-2 bg-teal-300 dark:bg-teal-700 text-black dark:text-white">
+          <Link
+            href="/"
+            target=""
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="/next.svg"
+              alt="Aqualab logo"
+              width={100}
+              height={20}
+              priority
+            />
+          </Link>
+          <div>
+            <nav className="flex flex-row gap-4">
+              <button>about us</button>
+              <button>monitor</button>
+            </nav>
+          </div>
         </header>
         {children}
-        <footer className="w-full h-12 bg-black dark:bg-white dark:text-black">
-          This is the footer
+        <footer className="w-full h-12 px-4 py-2 bg-teal-100 dark:bg-teal-900 text-black dark:text-white">
+          Aqualab
         </footer>
       </body>
     </html>
