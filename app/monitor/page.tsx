@@ -111,7 +111,7 @@ export default function Monitor() {
           </div>
         </div>
         <div className="flex flex-1 flex-col w-full items-center justify-start">
-          <div className="flex flex-1 flex-col w-full lg:w-3/2 p-8 rounded-2">
+          <div className="flex flex-1 flex-col w-full lg:w-3/4 p-8 rounded-2">
             <AquariumParametersGraph parametersArray={aquariumRequest.parametersArray} />
           </div>
         </div>
