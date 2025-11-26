@@ -52,14 +52,14 @@ export default function Monitor() {
       } else setNotifiedTemperature(false)
 
       if (!notifiedPh &&
-        (6.5 > parametersArr[0]?.ph || parametersArr[0]?.ph > 7.5)
+        (6.0 > parametersArr[0]?.ph || parametersArr[0]?.ph > 7.5)
       ) {
         sendNotification("Aqualab: PH anormal en el agua!", { body: "El PH no esta en el rango adecuado" })
         setNotifiedPh(true)
       } else setNotifiedPh(false)
 
       if (!notifiedTds &&
-        (1300 > parametersArr[0]?.tds_ppm || parametersArr[0]?.tds_ppm > 1500)) {
+        (300 > parametersArr[0]?.tds_ppm || parametersArr[0]?.tds_ppm > 800)) {
         sendNotification("Aqualab: TDS anormal en el agua!", { body: "El TDS no esta en el rango adecuado" })
         setNotifiedTds(true)
       } else setNotifiedTds(false)
