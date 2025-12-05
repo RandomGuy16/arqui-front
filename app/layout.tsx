@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aqualab: monitorear",
-  description: "Página de monitoreo de los parámetros del cultivo acuapónico",
+  title: "Sistema de corte de uñas: monitorear",
+  description: "Página de monitoreo de los parámetros del cortador de uñas",
 };
 
 export default function RootLayout({

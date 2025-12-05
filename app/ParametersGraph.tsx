@@ -1,6 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine } from 'recharts';
 import { useDeviceType } from "@/app/useDeviceType";
-import { EspParameters, AquariumRequest } from "@/app/models";
+import { EspParameters, ArquiRequest } from "@/app/models";
 import ParameterGraphTooltip from "@/app/ParameterGraphTooltip";
 
 interface ParameterGraphProps {
@@ -86,8 +86,8 @@ function ParameterGraph(
 }
 
 
-export default function AquariumParametersGraph({ parametersArray }: AquariumRequest) {
-  const motorState = parametersArray[0]?.rele_estado ?? 'apagado'
+export default function AquariumParametersGraph({ last_parameters }: ArquiRequest) {
+  const motorState = last_parameters[0]?.rele_estado ?? 'apagado'
   return (
     <div className="bg-white rounded-xl w-full h-full px-4">
       <div className='flex flex-1 flex-col md:flex-row h-full justify-center items-center px-8 py-4'>
@@ -98,7 +98,7 @@ export default function AquariumParametersGraph({ parametersArray }: AquariumReq
       </div>
       <hr />
       <ParameterGraph
-        parametersArray={parametersArray}
+        parametersArray={last_parameters}
         dataKey={"distancia_cm"}
         strokeColor={"#ffc400"}
         parameterLabel={"Altura del agua en la pecera (cm)"}
@@ -109,7 +109,7 @@ export default function AquariumParametersGraph({ parametersArray }: AquariumReq
       />
       <hr />
       <ParameterGraph
-        parametersArray={parametersArray}
+        parametersArray={last_parameters}
         dataKey={"humedad"}
         strokeColor={"#6491ed"}
         parameterLabel={"Humedad del aire (porcentaje de Humedad Relativa: RH)"}
@@ -120,7 +120,7 @@ export default function AquariumParametersGraph({ parametersArray }: AquariumReq
       />
       <hr />
       <ParameterGraph
-        parametersArray={parametersArray}
+        parametersArray={last_parameters}
         dataKey={"ph"}
         strokeColor={"#836eff"}
         parameterLabel={"PH en el agua"}
@@ -131,7 +131,7 @@ export default function AquariumParametersGraph({ parametersArray }: AquariumReq
       />
       <hr />
       <ParameterGraph
-        parametersArray={parametersArray}
+        parametersArray={last_parameters}
         dataKey={"tds_ppm"}
         strokeColor={"#2de070"}
         parameterLabel={"TDS en el agua (ppm)"}
@@ -142,7 +142,7 @@ export default function AquariumParametersGraph({ parametersArray }: AquariumReq
       />
       <hr />
       <ParameterGraph
-        parametersArray={parametersArray}
+        parametersArray={last_parameters}
         dataKey={"temperatura_aire"}
         strokeColor={"#fa730c"}
         parameterLabel={"Temperatura en el aire (C°)"}
